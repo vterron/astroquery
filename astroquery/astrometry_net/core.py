@@ -19,6 +19,7 @@ from ..utils import commons # has common functions required by most modules
 from ..utils import prepend_docstr_noreturns # automatically generate docs for similar functions
 from ..utils import async_to_sync # all class methods must be callable as static as well as instance methods.
 from . import SERVER, TIMEOUT # import configurable items declared in __init__.py
+from . import conf
 
 
 # export all the public classes and methods
@@ -49,11 +50,10 @@ class AstrometryClass(BaseQuery):
 
     @property
     def key(self):
-        """ Getter for the Astrometry.net API key. """
-
-        if self._key is None:
-            log.error("Astrometry.net API key not found")
-        return self._key
+        """ Return the Astrometry.net API key. """
+        if not conf.key:
+            log.error("Astrometry.net API key not in configuration file")
+        return conf.key
 
     @key.setter
     def key(self, value):
