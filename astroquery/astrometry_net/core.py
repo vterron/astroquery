@@ -40,10 +40,6 @@ class AstrometryClass(BaseQuery):
     URL = SERVER()
     TIMEOUT = TIMEOUT()
 
-    def _get_stored_API_key(self):
-        """ Return the API key, raise KeyError if not cached on disk. """
-        raise KeyError
-
     @property
     def key(self):
         """ Return the Astrometry.net API key. """
