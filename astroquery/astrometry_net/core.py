@@ -63,12 +63,10 @@ class AstrometryClass(BaseQuery):
     def __init__(self):
         """ Load the cached API key, show a warning message if can't be found. """
 
-        try:
-            self._key = self._get_stored_API_key()
-        except KeyError:
-            log.warn("Astrometry.net API key not found")
+        if not conf.key:
+            log.warn("Astrometry.net API key not found in configuration file")
             log.warn("You need to register it with Astrometry.key = 'XXXXXXXX'")
-            self._key = None
+            log.warn("Alternatively, you may also edit the configuration file")
 
     def build_request(self, catalog, settings={}, x_colname='x', y_colname='y'):
         """
