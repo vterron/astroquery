@@ -57,10 +57,8 @@ class AstrometryClass(BaseQuery):
 
     @key.setter
     def key(self, value):
-        """ Setter for the API key, cache it on disk. """
-
-        self._store_API_key(value)
-        self._key = value
+        """ Set the API key and update it in the configuration file. """
+        conf.key = value
 
     def __init__(self):
         """ Load the cached API key, show a warning message if can't be found. """
