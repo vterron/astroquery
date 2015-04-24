@@ -38,6 +38,6 @@ conf = Conf()
 # Now import your public class
 # Should probably have the same name as your module
 
-from .core import Astrometry, AstrometryClass
+from .core import Astrometry, AstrometryNetClass
 
-__all__ = ['Astrometry', 'AstrometryClass']
+__all__ = ['Astrometry', 'AstrometryNetClass']

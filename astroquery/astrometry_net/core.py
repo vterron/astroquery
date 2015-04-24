@@ -23,7 +23,7 @@ from . import conf
 
 
 # export all the public classes and methods
-__all__ = ['Astrometry', 'AstrometryClass']
+__all__ = ['Astrometry', 'AstrometryNetClass']
 
 # declare global variables and constants if any
 
@@ -31,7 +31,7 @@ __all__ = ['Astrometry', 'AstrometryClass']
 # should be decorated with the async_to_sync imported previously
 
 @async_to_sync
-class AstrometryClass(BaseQuery):
+class AstrometryNetClass(BaseQuery):
 
     """
     Not all the methods below are necessary but these cover most of the common cases, new methods may be added if necessary, follow the guidelines at <http://astroquery.readthedocs.org/en/latest/api.html>
@@ -444,17 +444,17 @@ class AstrometryClass(BaseQuery):
         print('id', result['subid'])
 
         time.sleep(5)
-        
+
         jobs = self.get_submit_status(subid, 30)
-        
+
         time.sleep(5)
-        
+
         wcs_fits = self.get_wcs_file(job_id, timeout)
-        
+
         return result
 
 # the default tool for users to interact with is an instance of the Class
-Astrometry = AstrometryClass()
+Astrometry = AstrometryNetClass()
 
 # once your class is done, tests should be written
 # See ./tests for examples on this
