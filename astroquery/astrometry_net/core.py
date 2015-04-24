@@ -41,21 +41,21 @@ class AstrometryNetClass(BaseQuery):
     TIMEOUT = TIMEOUT()
 
     @property
-    def key(self):
+    def api_key(self):
         """ Return the Astrometry.net API key. """
-        if not conf.key:
+        if not conf.api_key:
             log.error("Astrometry.net API key not in configuration file")
-        return conf.key
+        return conf.api_key
 
-    @key.setter
-    def key(self, value):
+    @api_key.setter
+    def api_key(self, value):
         """ Temporarily set the API key. """
-        conf.key = value
+        conf.api_key = value
 
     def __init__(self):
         """ Show a warning message if the API key is not in the configuration file. """
 
-        if not conf.key:
+        if not conf.api_key:
             log.warn("Astrometry.net API key not found in configuration file")
             log.warn("You need to manually edit the configuration file and add it")
             log.warn("You may also register it for this session with Astrometry.key = 'XXXXXXXX'")

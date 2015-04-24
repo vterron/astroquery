@@ -28,7 +28,7 @@ TIMEOUT = ConfigurationItem('timeout', 30, 'default timeout for connecting to se
 class Conf(_config.ConfigNamespace):
     """ Configuration parameters for `astroquery.astrometry_net` """
 
-    key = _config.ConfigItem(
+    api_key = _config.ConfigItem(
         '',
         "The Astrometry.net API key."
         )
