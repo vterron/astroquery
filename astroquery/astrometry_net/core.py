@@ -23,7 +23,7 @@ from . import conf
 
 
 # export all the public classes and methods
-__all__ = ['Astrometry', 'AstrometryNetClass']
+__all__ = ['AstrometryNet', 'AstrometryNetClass']
 
 # declare global variables and constants if any
 
@@ -454,7 +454,7 @@ class AstrometryNetClass(BaseQuery):
         return result
 
 # the default tool for users to interact with is an instance of the Class
-Astrometry = AstrometryNetClass()
+AstrometryNet = AstrometryNetClass()
 
 # once your class is done, tests should be written
 # See ./tests for examples on this
